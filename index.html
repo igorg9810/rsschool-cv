@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Igor Golubenkov's CV</title>
+</head>
+
+<body>
+	<div class="content"> <img src="https://image.ibb.co/e0RLzK/entrepreneur_1340649_340.jpg" alt="My photo" id="portrait">
+		<h1> Igor Golubenov </h1>
+		<h2> Junior Frontend Developer </h2>
+		<h1> How to contact me? </h1>
+		<ul>
+			<li> Phone/Telegram: +375293803777 </li>
+			<li> Email: igorgworking@gmail.com </li>
+		</ul>
+		<h1> My Goals </h1>
+		<p> My professional goal is to create excellent products that make people happier, more productive, creative and are available to everyone without exceptions. I have a very diverse experience in IT-industry, spanning from Data Science to UX/UI design. I'm fascinated by exploring new areas, acquiring skills and finding my perfect job! After a long run of backend development I've decided to learn Frontend to work closer to human-visible side of the applications. </p>
+		<h1> My experience </h1>
+		<p> My previous position was a <b>data analyst</b> at a retail company. I was attached to different projects within the company, creating reports for different departments. I have implemented non-liquid items detection system, which automatically downloads data from internal ERP-system server via SMB-protocol and performs analysis using Python libraries (pandas and numpy). This solution is integrated in company’s catalogue. Other project included creating marketing reports, using data from very different sources: <b>Google Analytics, Google AdWords, Yandex.Market, Yandex.Direct, Facebook</b> company’s site and internal ERP-system. The date was collected and loaded in <b>Google BigQuery</b> tables with the help of another company’s solution. My job was to correctly merge the data and create appropriate reports with visualizations. Merging was performed with the help of SQL right in BigQuery, visualization – using <b>Google Data Studio</b>. </p>
+		<p> My previous reports have been created in <b>Power BI</b> Among different retrospective charts, I tried to plot predictions for company’ s sales time series for few next weeks, though the solution was not widely used due to difficulties with cleaning data and having different sales channels. Back in university I was studying <b>Multivariate Statistical Analysis, Econometrics</b> and have some experience in time series analysis. We studied all classic models <b>AR, MA, ARMA, ARIMA)</b>, ways to decompose time series in trend, seasonal components, model accuracy metrics. </p>
+		<p> Also I have pretty wide experience in <b>Machine Learning</b>. My latter interest is Computer Vision. I completed an online course focused on Deep Learning, it’s mathematical back-end, implementations and tricks for applied problems. Right now I participate in Kaggle Competition, which goal is Bengali handwritten graphemes recognition. I have already tried an implementation of <b>ResNet</b> on the dataset, which showed pretty good accuracy (around 0.96). During my CV course I have implemented <b>Multilayer Perceptron</b> and <b>Convolutional</b> layer myself with analytical and computed gradient comparison as a sanity check (they were equal). For further tasks I switched to <b>PyTorch</b> and <b>Tensorflow</b>, so that I could focus on model’s architecture and hyperparameter tuning. I successfully used <b>transfer learning</b> technique to change output layer and switch from ImageNet classification problem to binary classification. I also became familiar with Apache Spark interface during another course focused on parallel computing. </p>
+		<p> My experience in Python includes using <b>Django</b> for personal site with a database <b>sqlite)</b>. The other site I created was used for deploying trained ML model (<b>Random Forest</b> for a regression problem). The model implementation was taken from <b>scikit-learn</b> library and serialized using <b>pickle</b>. Other Computer Science areas and programming languages I’ve worked with: <b>Java, JavaScript, C++, Linux, bash scripts, Docker, Selenium, R, Git, SQL, SAP FIORI Framework, HTML/CSS, REST architecture, Database normalization, Data Structures</b>. </p>
+		<h1> Code Examples </h1>
+		<h2> Random Forest Regressor for Django app </h2> <pre>
+  <code>
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pickle
+import os
+from distutils.version import LooseVersion as Version
+from sklearn import __version__ as sklearn_version
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+from nltk.corpus import stopwords
+
+stop = stopwords.words('english')
+
+df = pd.read_csv('sample.csv', parse_dates=['время'], engine='python')
+df['время'] = df['время'].dt.hour
+df.head
+
+if Version(sklearn_version) < '0.18':
+    from sklearn.cross_validation import train_test_split
+else:
+    from sklearn.model_selection import train_test_split
+
+X, y = df.iloc[:, 0:9].values, df.iloc[:, 11].values
+
+X_train, X_test, y_train, y_test = \
+    train_test_split(X, y, test_size=0.3, random_state=0)
+	
+from sklearn.ensemble import RandomForestRegressor
+
+forest = RandomForestRegressor(n_estimators=1000, 
+                               criterion='mse', 
+                               random_state=1, 
+                               n_jobs=-1)
+forest.fit(X_train, y_train)
+y_train_pred = forest.predict(X_train)
+y_test_pred = forest.predict(X_test)
+
+print(y_train_pred)
+print(y_train)
+
+print(y_test_pred)
+print(y_test)
+
+plt.scatter(y_train_pred,  y_train_pred - y_train,
+            c='blue', marker='o', label='Training data')
+plt.scatter(y_test_pred,  y_test_pred - y_test,
+            c='lightgreen', marker='s', label='Test data')
+plt.xlabel('Predicted values')
+plt.ylabel('Residuals')
+plt.legend(loc='upper left')
+plt.hlines(y=0, xmin=-10, xmax=50, lw=2, color='red')
+plt.xlim([-10, 50])
+plt.tight_layout()
+plt.show()
+
+print('MSE train: %.3f, test: %.3f' % (
+        mean_squared_error(y_train, y_train_pred),
+        mean_squared_error(y_test, y_test_pred)))
+print('R^2 train: %.3f, test: %.3f' % (
+        r2_score(y_train, y_train_pred),
+        r2_score(y_test, y_test_pred)))
+
+dest = os.path.join('scooterpredictor', 'pkl_objects')
+if not os.path.exists(dest):
+    os.makedirs(dest)
+
+pickle.dump(stop, open(os.path.join(dest, 'stopwords.pkl'), 'wb'), protocol=4)   
+pickle.dump(forest, open(os.path.join(dest, 'predictor.pkl'), 'wb'), protocol=4)
+  </pre> </code>
+		<h1> Foreign languages skills: </h1>
+		<p> English(C1), Deutsch(A1) </p>
+		<h1> Education: </h1>
+		<p> Belarussian State University, Faculty of Applied Math, Speciality: Economical Cybernetics. Year of graduation: 2019 </p>
+		<h2> Additional education, certificates: </h2>
+		<ol>
+			<li> "Introduction to Financial Engineering" (Compatibl); </li>
+			<li> "Design and development of modern analytical systems. DWH. Big Data. Cloud" (IBA Group); </li>
+			<li> "Machine Learning" (Coursera, Andrew Ng); </li>
+			<li> "Modern SAP Development" (EPAM Systems); </li>
+			<li> "Einstein Analytics Data Preparation Specialist" (SalesForce trailhead); </li>
+			<li> "Fundamentals of Scalable Data Science" (IBM, Coursera); </li>
+			<li> "UX/UI Design" (TeachMeSkills) </li>
+		</ol>
+	</div>
+</body>
+
+</html>
