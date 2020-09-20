@@ -13,7 +13,7 @@ My professional goal is to create excellent products that make people happier, m
 My previous position was a **data analyst** at a retail company. I was attached to different projects within the company, creating reports for different departments. I have implemented non-liquid items detection system, which automatically downloads data from internal ERP-system server via SMB-protocol and performs analysis using Python libraries (pandas and numpy). This solution is integrated in company’s catalogue.
 Other project included creating marketing reports, using data from very different sources: **Google Analytics, Google AdWords, Yandex.Market, Yandex.Direct, Facebook**, company’s site and internal ERP-system. The date was collected and loaded in **Google BigQuery** tables with the help of another company’s solution. My job was to correctly merge the data and create appropriate reports with visualizations. Merging was performed with the help of SQL right in BigQuery, visualization – using **Google Data Studio**.
 
-My previous reports have been created in **Power BI((. Among different retrospective charts, I tried to plot predictions for company’ s sales time series for few next weeks, though the solution was not widely used due to difficulties with cleaning data and having different sales channels.
+My previous reports have been created in **Power BI**. Among different retrospective charts, I tried to plot predictions for company’ s sales time series for few next weeks, though the solution was not widely used due to difficulties with cleaning data and having different sales channels.
 Back in university I was studying **Multivariate Statistical Analysis, Econometrics** and have some experience in time series analysis. We studied all classic models **(AR, MA, ARMA, ARIMA)**, ways to decompose time series in trend, seasonal components, model accuracy metrics.
 
 Also I have pretty wide experience in **Machine Learning**. My latter interest is Computer Vision. I completed an online course focused on Deep Learning, it’s mathematical back-end, implementations and tricks for applied problems. Right now I participate in Kaggle Competition, which goal is Bengali handwritten graphemes recognition. I have already tried an implementation of **ResNet** on the dataset, which showed pretty good accuracy (around 0.96). 
@@ -299,7 +299,7 @@ pickle.dump(stop, open(os.path.join(dest, 'stopwords.pkl'), 'wb'), protocol=4)
 pickle.dump(forest, open(os.path.join(dest, 'predictor.pkl'), 'wb'), protocol=4)
 ```
 
-# Foreign language skills:
+# Foreign languages skills:
 English(C1), Deutsch(A1)
 
 # Education:
