@@ -298,3 +298,18 @@ if not os.path.exists(dest):
 pickle.dump(stop, open(os.path.join(dest, 'stopwords.pkl'), 'wb'), protocol=4)   
 pickle.dump(forest, open(os.path.join(dest, 'predictor.pkl'), 'wb'), protocol=4)
 ```
+
+# Foreign language skills:
+English(C1), Deutsch(A1)
+
+# Education:
+Belarussian State University, Faculty of Applied Math, Speciality: Economical Cybernetics. Year of graduation: 2019
+Additional education, certificates:
+
+1. "Introduction to Financial Engineering" (Compatibl);
+2. "Design and development of modern analytical systems. DWH. Big Data. Cloud" (IBA Group);
+3. "Machine Learning" (Coursera, Andrew Ng);
+4. "Modern SAP Development" (EPAM Systems);
+5. "Einstein Analytics Data Preparation Specialist" (SalesForce trailhead);
+6. "Fundamentals of Scalable Data Science" (IBM, Coursera);
+7. "UX/UI Design" (TeachMeSkills)
